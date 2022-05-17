@@ -1,7 +1,13 @@
 package test.base;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -77,6 +83,13 @@ public class BaseClass {
 
 	public static void frameSwitch(int index) {
 		driver.switchTo().frame(index);
+	}
+	public static void screenshot(String name) throws IOException {
+		TakesScreenshot tk = (TakesScreenshot) driver;
+		File scr = tk.getScreenshotAs(OutputType.FILE);
+		File des = new File(System.getProperty("user.dir") + "\\src\\test\\resources\\screenshots\\" + name + ".png");
+		FileUtils.copyFile(scr, des);
+
 	}
 
 }

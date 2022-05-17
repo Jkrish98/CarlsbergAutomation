@@ -1,12 +1,7 @@
 package test.stepdefinition;
 
 import java.io.IOException;
-
 import org.junit.Assert;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-
-import io.cucumber.core.api.Scenario;
 import io.cucumber.java.en.*;
 import test.base.BaseClass;
 import test.pages.CarlsbergUtility;
@@ -43,8 +38,8 @@ public class Stepdefinition extends BaseClass {
 
 	@Then("User should view the calculated results")
 	public void user_should_view_the_calculated_results() throws IOException {
+		screenshot("carlsberg"); //Saves in local  
 		
-
 	}
 
 }
